@@ -1,10 +1,21 @@
+from flask import Flask
 from calculator import add, divide
 
-print("[LOG] Application Started")
+app = Flask(__name__)
 
-print("Addition Result:", add(10, 5))
+@app.route("/")
+def home():
+    try:
+        division_result = divide(10, 0)
+    except ValueError as e:
+        division_result = str(e)
 
-try:
-    print("Division Result:", divide(10, 0))
-except ValueError as e:
-    print(f"[ERROR] {e}")
+    return {
+        "message": "Application Started",
+        "addition_result": add(10, 5),
+        "division_result": division_result
+    }
+
+if __name__ == "__main__":
+    print("[LOG] Flask Server Started")
+    app.run(host="0.0.0.0", port=5000)
