@@ -2,17 +2,17 @@ apiVersion: backstage.io/v1alpha1
 kind: Component
 
 metadata:
-  name: DSSP-Python
-  description: Service DSSP-Python
+  name:  DSSP-Python
+  description: Service  DSSP-Python
 
   annotations:
-    github.com/project-slug: BackstageSSPPoC/DSSP-Python
+    github.com/project-slug: BackstageSSPPoC/ DSSP-Python
     backstage.io/techdocs-ref: dir:.
     jenkins.io/job-full-name: Backstage_SSP_PoC/DSSP-Python/main
-    argocd/app-name: dssp-python
-    backstage.io/kubernetes-id: DSSP-Python
+    argocd/app-name:  dssp-python
+    backstage.io/kubernetes-id:  DSSP-Python
     backstage.io/kubernetes-namespace: default
-    sonarqube.org/project-key: dssp-python
+    sonarqube.org/project-key:  dssp-python
 
 spec:
   type: service

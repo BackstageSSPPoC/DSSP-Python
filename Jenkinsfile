@@ -2,12 +2,12 @@ pipeline {
     agent any
 
     environment {
-        APP_NAME = "DSSP-Python".toLowerCase().trim()
+        APP_NAME = " DSSP-Python".toLowerCase().trim()
         DOCKER_IMAGE = "chaitanyapandeygspann/${APP_NAME}"
         DOCKER_TAG = "1.0.${BUILD_NUMBER}"
         IMAGE_TAG = "${DOCKER_IMAGE}:${DOCKER_TAG}"
         GITOPS_REPO = "https://github.com/BackstageSSPPoC/k8s-manifests.git"
-        APP_PORTS = "8080"
+        APP_PORTS = "5000"
     }
 
     stages {
