@@ -2,11 +2,12 @@ pipeline {
     agent any
 
     environment {
-        APP_NAME = " DSSP-Python".toLowerCase().trim()
+        APP_NAME = "DSSP-Python".toLowerCase().trim()
         DOCKER_IMAGE = "chaitanyapandeygspann/${APP_NAME}"
         DOCKER_TAG = "1.0.${BUILD_NUMBER}"
         IMAGE_TAG = "${DOCKER_IMAGE}:${DOCKER_TAG}"
         GITOPS_REPO = "https://github.com/BackstageSSPPoC/k8s-manifests.git"
+        APP_PORTS = "8080"
     }
 
     stages {
@@ -137,6 +138,7 @@ pipeline {
 
                     sed -i "s|\\${APP_NAME}|${APP_NAME}|g" apps/${APP_NAME}/*.yaml || true
                     sed -i "s|\\${DOCKER_IMAGE}|${IMAGE_TAG}|g" apps/${APP_NAME}/deployment.yaml || true
+                    sed -i "s|\\${APP_PORTS}|${APP_PORTS}|g" apps/${APP_NAME}/*.yaml || true
 
                     git config user.email "jenkins@local"
                     git config user.name "jenkins"
